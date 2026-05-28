@@ -1,0 +1,1170 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>사고독서 리세움 | 국어 기반 사고문해력 교육원</title>
+<link href="https://fonts.googleapis.com/css2?family=Gowun+Batang:wght@400;700&family=Noto+Sans+KR:wght@300;400;500;700;900&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400&family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&display=swap" rel="stylesheet" />
+<style>
+/* ===== Base ===== */
+* { margin:0; padding:0; box-sizing:border-box; }
+html { scroll-behavior:smooth; }
+body {
+  font-family:'Noto Sans KR', sans-serif;
+  color:#1f2a20; background:#fff;
+  line-height:1.9; letter-spacing:-0.2px;
+  -webkit-font-smoothing:antialiased;
+}
+h1,h2,h3,h4 { font-family:'Gowun Batang', serif; line-height:1.5; letter-spacing:-0.5px; }
+a { color:inherit; text-decoration:none; }
+img { max-width:100%; display:block; }
+
+/* ===== Layout ===== */
+.container { max-width:1140px; margin:0 auto; padding:0 24px; position:relative; z-index:2; }
+section { padding:130px 0; position:relative; overflow:hidden; }
+.section-label {
+  display:inline-block; font-family:'Playfair Display', serif;
+  font-size:13px; letter-spacing:6px; font-weight:700;
+  margin-bottom:24px; text-transform:uppercase;
+  padding:8px 20px; border-radius:25px;
+}
+.section-title { font-size:44px; margin-bottom:28px; font-weight:700; line-height:1.55; }
+.section-desc { font-size:17px; margin-bottom:70px; max-width:760px; line-height:2; }
+
+/* ===== Watermark ===== */
+.watermark {
+  position:absolute; font-family:'Playfair Display', serif;
+  font-weight:900; font-style:italic;
+  pointer-events:none; user-select:none;
+  z-index:1; letter-spacing:-5px;
+}
+
+/* ===== Header ===== */
+header {
+  position:fixed; top:0; left:0; right:0;
+  background:rgba(255,255,255,0.97);
+  backdrop-filter:blur(12px); z-index:1000;
+  border-bottom:2px solid #2c4a2d;
+  box-shadow:0 2px 15px rgba(0,0,0,0.05);
+}
+.nav { display:flex; justify-content:space-between; align-items:center; padding:16px 0; }
+.logo { font-family:'Gowun Batang', serif; font-size:24px; font-weight:700; color:#2c4a2d; }
+.logo span {
+  font-family:'Cormorant Garamond', serif; color:#6b8e5a;
+  font-weight:400; font-style:italic;
+  font-size:15px; margin-left:8px; letter-spacing:3px;
+}
+.nav-menu { display:flex; gap:38px; list-style:none; }
+.nav-menu a { font-size:15px; color:#2c4a2d; font-weight:500; transition:color .2s; }
+.nav-menu a:hover { color:#6b8e5a; }
+.nav-cta {
+  background:#2c4a2d; color:#fff !important;
+  padding:12px 24px; border-radius:30px;
+  font-size:14px; font-weight:700; transition:all .2s;
+}
+.nav-cta:hover { background:#1f3520; transform:translateY(-1px); box-shadow:0 6px 18px rgba(44,74,45,0.3); }
+
+/* ===== Hero ===== */
+.hero {
+  min-height:100vh; display:flex; align-items:center;
+  background:linear-gradient(135deg, #1f3520 0%, #2c4a2d 50%, #3d5a3e 100%);
+  color:#fff; padding-top:90px;
+}
+.hero-watermark {
+  top:50%; left:50%; transform:translate(-50%, -50%);
+  font-size:clamp(180px, 28vw, 420px);
+  color:rgba(212,227,168,0.06);
+  line-height:0.9; white-space:nowrap;
+}
+.hero::before {
+  content:''; position:absolute; top:-100px; right:-100px;
+  width:550px; height:550px;
+  background:radial-gradient(circle, rgba(212,227,168,0.18) 0%, transparent 70%);
+  border-radius:50%; z-index:1;
+}
+.hero::after {
+  content:''; position:absolute; bottom:-200px; left:-200px;
+  width:650px; height:650px;
+  background:radial-gradient(circle, rgba(122,155,106,0.15) 0%, transparent 70%);
+  border-radius:50%; z-index:1;
+}
+.hero-content { max-width:900px; position:relative; z-index:3; }
+.hero-tagline { display:flex; align-items:center; gap:18px; margin-bottom:40px; }
+.hero-tagline .line {
+  width:60px; height:1px;
+  background:linear-gradient(90deg, transparent 0%, #d4e3a8 100%);
+}
+.hero-tagline .text {
+  font-family:'Cormorant Garamond', serif;
+  font-size:18px; letter-spacing:8px;
+  color:#d4e3a8; font-weight:300;
+  font-style:italic; text-transform:uppercase;
+}
+.hero-tagline .text strong { font-weight:500; letter-spacing:8px; }
+.hero h1 {
+  font-family:'Gowun Batang', serif; font-size:64px;
+  font-weight:700; line-height:1.5; margin-bottom:44px;
+  color:#fff; letter-spacing:-1.5px;
+}
+.hero h1 .accent { color:#d4e3a8; position:relative; display:inline-block; }
+.hero h1 .accent::after {
+  content:''; position:absolute; left:0; right:0; bottom:-6px;
+  height:5px; background:#d4e3a8; border-radius:3px;
+}
+.hero-sub {
+  font-family:'Noto Sans KR', sans-serif;
+  font-size:19px; color:#e8efd9;
+  margin-bottom:50px; line-height:2.1; font-weight:300;
+}
+.hero-sub strong { color:#fff; font-weight:700; }
+.cta-group { display:flex; gap:16px; flex-wrap:wrap; }
+.btn {
+  padding:18px 38px; border-radius:35px;
+  font-size:15px; font-weight:700;
+  transition:all .25s; cursor:pointer; border:none;
+  display:inline-block; letter-spacing:0.5px;
+  font-family:'Noto Sans KR', sans-serif;
+}
+.btn-primary { background:#fff; color:#2c4a2d; }
+.btn-primary:hover { background:#d4e3a8; transform:translateY(-3px); box-shadow:0 12px 28px rgba(0,0,0,0.25); }
+.btn-outline { background:transparent; color:#fff; border:2px solid #fff; }
+.btn-outline:hover { background:#fff; color:#2c4a2d; transform:translateY(-3px); }
+
+/* ===== Empathy ===== */
+.empathy { background:#fff; }
+.empathy-watermark {
+  top:50px; right:-40px; font-size:clamp(120px, 18vw, 240px);
+  color:rgba(122,155,106,0.06); line-height:1;
+}
+.empathy .section-label { background:#eaf0dc; color:#3d5a3e; }
+.empathy .section-title { color:#1f2a20; }
+.empathy .section-desc { color:#4a5a4b; }
+.empathy-quotes {
+  display:grid; grid-template-columns:repeat(auto-fit, minmax(310px, 1fr));
+  gap:30px; margin-top:50px;
+}
+.quote-card {
+  background:linear-gradient(180deg, #fdfdfa 0%, #f5f7ec 100%);
+  padding:50px 36px 36px; border-radius:20px;
+  border:1px solid #e0e6d4;
+  color:#2c3e2d; font-size:16px;
+  font-family:'Gowun Batang', serif; font-weight:400;
+  line-height:1.95; position:relative; transition:all .35s;
+  box-shadow:0 6px 20px rgba(44,74,45,0.06);
+  overflow:hidden;
+}
+.quote-card::before {
+  content:'❝';
+  font-family:'Cormorant Garamond', serif;
+  font-weight:700; font-size:80px;
+  color:#a8c189; position:absolute;
+  top:14px; left:24px; line-height:0.8; opacity:0.7;
+}
+.quote-card::after {
+  content:'❞';
+  font-family:'Cormorant Garamond', serif;
+  font-weight:700; font-size:60px;
+  color:#a8c189; position:absolute;
+  bottom:-8px; right:24px; line-height:0.8; opacity:0.4;
+}
+.quote-card:hover {
+  transform:translateY(-8px);
+  box-shadow:0 20px 40px rgba(44,74,45,0.15);
+  border-color:#a8c189;
+}
+.quote-card:hover::before { opacity:1; color:#6b8e5a; }
+.quote-card .quote-text { position:relative; z-index:2; padding-top:20px; padding-left:6px; }
+.empathy-conclusion {
+  margin-top:70px; text-align:center;
+  font-family:'Gowun Batang', serif;
+  font-size:28px; color:#fff; font-weight:700;
+  padding:54px 40px;
+  background:linear-gradient(135deg, #2c4a2d 0%, #4a6a4b 100%);
+  border-radius:22px; line-height:1.85;
+  box-shadow:0 18px 45px rgba(44,74,45,0.28);
+  letter-spacing:-0.5px;
+}
+.empathy-conclusion strong { color:#d4e3a8; }
+
+/* ===== Solution / Venn (SVG 방식) ===== */
+.solution {
+  background:linear-gradient(180deg, #f7f0e4 0%, #ebe4cf 100%);
+  text-align:center;
+}
+.solution-watermark {
+  top:50%; left:50%; transform:translate(-50%, -50%);
+  font-size:clamp(200px, 32vw, 480px);
+  color:rgba(44,74,45,0.05); line-height:0.9; white-space:nowrap;
+}
+.solution .section-label { background:#fff; color:#3d5a3e; }
+.solution .section-title { color:#1f2a20; }
+.solution .section-desc { color:#3d5a3e; margin-left:auto; margin-right:auto; }
+
+.venn-svg-wrap {
+  width:100%;
+  max-width:780px;
+  margin:30px auto 30px;
+  position:relative;
+}
+.venn-svg { width:100%; height:auto; display:block; }
+.venn-svg .circle { mix-blend-mode:multiply; }
+.venn-svg .circle-left   { fill:#d9dabc; opacity:0.7; }
+.venn-svg .circle-right  { fill:#c8d8bf; opacity:0.7; }
+.venn-svg .circle-bottom { fill:#bdc4a3; opacity:0.7; }
+.venn-svg .text-dark {
+  fill:#1f3520;
+  font-family:'Gowun Batang', serif;
+  font-size:38px; font-weight:700;
+  text-anchor:middle;
+}
+.venn-svg .text-white {
+  fill:#ffffff;
+  font-family:'Gowun Batang', serif;
+  font-size:28px; font-weight:700;
+  text-anchor:middle;
+}
+.venn-svg .text-accent {
+  fill:#fffbd6;
+  font-family:'Gowun Batang', serif;
+  font-size:32px; font-weight:700;
+  text-anchor:middle;
+}
+
+.solution-desc-bottom {
+  max-width:740px; margin:40px auto 0;
+  font-size:17px; color:#2c4a2d; line-height:2.1;
+}
+.solution-desc-bottom strong { color:#1f3520; font-weight:700; }
+
+/* ===== Program ===== */
+.program { background:#fff; }
+.program-watermark {
+  top:80px; left:-50px; font-size:clamp(150px, 22vw, 300px);
+  color:rgba(44,74,45,0.05); line-height:1;
+}
+.program .section-label { background:#2c4a2d; color:#fff; }
+.program-intro { display:grid; grid-template-columns:1fr 1fr; gap:30px; margin-bottom:90px; }
+.program-axis {
+  background:linear-gradient(135deg, #3d5a3e 0%, #2c4a2d 100%);
+  color:#fff; padding:46px 38px; border-radius:22px;
+  transition:all .3s; position:relative; overflow:hidden;
+}
+.program-axis::before {
+  content:''; position:absolute; top:-60px; right:-60px;
+  width:200px; height:200px;
+  background:radial-gradient(circle, rgba(212,227,168,0.18) 0%, transparent 70%);
+  border-radius:50%;
+}
+.program-axis:hover { transform:translateY(-10px); box-shadow:0 24px 45px rgba(44,74,45,0.28); }
+.axis-num {
+  font-family:'Playfair Display', serif;
+  font-size:13px; color:#d4e3a8; letter-spacing:5px;
+  margin-bottom:14px; font-weight:700;
+}
+.axis-title { font-size:28px; margin-bottom:10px; color:#fff; font-weight:700; line-height:1.4; }
+.axis-en { font-family:'Playfair Display', serif; font-style:italic; color:#d4e3a8; font-size:15px; margin-bottom:22px; }
+.axis-desc { color:#e8efd9; font-size:16px; line-height:1.95; }
+.axis-desc strong { color:#fff; }
+
+.concept-block { padding:58px 48px; border-radius:26px; margin-bottom:30px; border:2px solid #d8e4c0; }
+.concept-block.lit { background:linear-gradient(135deg, #eaf0dc 0%, #f5f7ec 100%); }
+.concept-block.nonfic { background:linear-gradient(135deg, #f5f7ec 0%, #eaf0dc 100%); }
+.concept-block h3 {
+  font-family:'Gowun Batang', serif; font-size:28px;
+  margin-bottom:18px; color:#1f3520; font-weight:700;
+  display:flex; align-items:center; gap:14px; line-height:1.4;
+}
+.concept-block h3::before { content:'🌿'; font-size:26px; }
+.concept-intro { color:#3d5a3e; font-size:16px; margin-bottom:30px; line-height:2; }
+.concept-intro strong { color:#1f3520; font-weight:700; }
+.concept-words { display:flex; flex-wrap:wrap; gap:12px; margin-bottom:28px; }
+.concept-word {
+  background:#fff; color:#2c4a2d;
+  padding:12px 24px; border-radius:25px;
+  font-size:15px; font-weight:700;
+  border:2px solid #6b8e5a; transition:all .2s;
+}
+.concept-word.more { background:#2c4a2d; color:#fff; border-color:#2c4a2d; }
+.concept-note {
+  font-size:14px; color:#5e6e5f; font-style:italic;
+  padding-top:20px; border-top:1px dashed #c5d4b5; line-height:1.8;
+}
+
+.steps-title-wrap { margin-top:60px; margin-bottom:18px; }
+.steps-title { font-family:'Gowun Batang', serif; font-size:30px; color:#1f3520; font-weight:700; line-height:1.5; }
+.steps-sub { color:#5e6e5f; font-size:16px; margin-bottom:36px; line-height:1.85; }
+.steps-grid { display:grid; grid-template-columns:repeat(auto-fit, minmax(240px, 1fr)); gap:20px; }
+.step-card { background:#fff; padding:32px 28px; border-radius:18px; border:2px solid #eef1e4; transition:all .25s; }
+.step-card:hover { transform:translateY(-7px); border-color:#6b8e5a; box-shadow:0 14px 32px rgba(107,142,90,0.22); }
+.step-num {
+  width:46px; height:46px; border-radius:50%;
+  background:linear-gradient(135deg, #6b8e5a 0%, #3d5a3e 100%);
+  color:#fff; display:flex; align-items:center; justify-content:center;
+  font-family:'Playfair Display', serif; font-weight:900;
+  font-size:19px; margin-bottom:18px;
+  box-shadow:0 4px 12px rgba(107,142,90,0.35);
+}
+.step-title { font-family:'Gowun Batang', serif; font-size:19px; font-weight:700; color:#1f3520; margin-bottom:10px; line-height:1.4; }
+.step-desc { font-size:14.5px; color:#4a5a4b; line-height:1.8; }
+.outputs {
+  background:linear-gradient(135deg, #2c4a2d 0%, #3d5a3e 100%);
+  color:#fff; padding:50px 44px; border-radius:22px; margin-top:70px;
+}
+.outputs h4 { font-family:'Gowun Batang', serif; font-size:24px; margin-bottom:26px; color:#fff; font-weight:700; }
+.outputs-list { display:flex; flex-wrap:wrap; gap:12px; }
+.output-tag {
+  background:rgba(255,255,255,0.15); backdrop-filter:blur(4px);
+  padding:11px 22px; border-radius:22px;
+  font-size:14.5px; color:#fff; font-weight:500;
+  border:1.5px solid rgba(212,227,168,0.5);
+}
+
+/* ===== Level ===== */
+.level { background:linear-gradient(180deg, #d8e4c0 0%, #c5d4b5 100%); }
+.level-watermark {
+  top:50%; right:-60px; transform:translateY(-50%);
+  font-size:clamp(150px, 22vw, 320px);
+  color:rgba(31,53,32,0.06); line-height:1;
+}
+.level .section-label { background:#2c4a2d; color:#fff; }
+.level .section-title { color:#1f3520; }
+.level .section-desc { color:#2c4a2d; }
+.level-table {
+  background:#fff; border-radius:22px; overflow:hidden;
+  box-shadow:0 12px 45px rgba(44,74,45,0.18); margin-bottom:46px;
+}
+.level-row {
+  display:grid; grid-template-columns:130px 210px 1fr;
+  padding:28px 38px; border-bottom:1px solid #eef1e4;
+  align-items:center; transition:background .2s;
+}
+.level-row:hover { background:#fafaf5; }
+.level-row:last-child { border-bottom:none; }
+.level-row.head {
+  background:linear-gradient(135deg, #2c4a2d 0%, #3d5a3e 100%);
+  color:#fff; font-family:'Gowun Batang', serif; font-weight:700;
+}
+.level-row.head:hover { background:linear-gradient(135deg, #2c4a2d 0%, #3d5a3e 100%); }
+.level-badge {
+  width:60px; height:60px; border-radius:50%;
+  color:#fff; font-family:'Playfair Display', serif; font-weight:900;
+  font-size:18px; display:flex; align-items:center; justify-content:center;
+  box-shadow:0 4px 14px rgba(0,0,0,0.18);
+}
+.level-row.head .level-badge { background:transparent !important; border:2px solid #fff; box-shadow:none; }
+.badge-L1 { background:linear-gradient(135deg, #b8d49a 0%, #a0c47e 100%); color:#1f3520; }
+.badge-L2 { background:linear-gradient(135deg, #8cb473 0%, #6b9a55 100%); }
+.badge-L3 { background:linear-gradient(135deg, #6b8e5a 0%, #4a7041 100%); }
+.badge-L4 { background:linear-gradient(135deg, #4a6a4b 0%, #2c4a2d 100%); }
+.badge-L5 { background:linear-gradient(135deg, #2c4a2d 0%, #0f1f10 100%); }
+.level-name { font-family:'Gowun Batang', serif; font-weight:700; font-size:19px; color:#1f3520; line-height:1.4; }
+.level-row.head .level-name { color:#fff; }
+.level-goal { font-size:16px; color:#3d5a3e; font-weight:500; line-height:1.7; }
+.level-row.head .level-goal { color:#fff; font-weight:700; }
+.level-note {
+  text-align:center; color:#1f3520; font-size:16px;
+  background:rgba(255,255,255,0.75); padding:24px 32px;
+  border-radius:14px; font-weight:500; line-height:1.85;
+}
+.level-note a { color:#2c4a2d; font-weight:700; border-bottom:2px solid #2c4a2d; }
+
+/* ===== FAQ ===== */
+.faq { background:#1f3520; color:#fff; }
+.faq-watermark {
+  top:50%; left:50%; transform:translate(-50%, -50%);
+  font-size:clamp(200px, 32vw, 460px);
+  color:rgba(212,227,168,0.04); line-height:0.9; white-space:nowrap;
+}
+.faq .section-label { background:#d4e3a8; color:#1f3520; }
+.faq .section-title { color:#fff; }
+.faq .section-desc { color:#c5d4b5; }
+.faq-list { max-width:920px; margin:0 auto; }
+.faq-item {
+  background:rgba(255,255,255,0.05);
+  border:1.5px solid rgba(212,227,168,0.2);
+  border-radius:16px; margin-bottom:16px;
+  overflow:hidden; transition:all .25s;
+}
+.faq-item:hover { background:rgba(255,255,255,0.09); border-color:rgba(212,227,168,0.4); }
+.faq-q {
+  display:flex; align-items:flex-start; gap:20px;
+  font-family:'Gowun Batang', serif;
+  font-size:18.5px; font-weight:700; color:#fff;
+  line-height:1.65; padding:26px 32px;
+  cursor:pointer; user-select:none;
+}
+.faq-q-icon {
+  flex-shrink:0; width:36px; height:36px;
+  border-radius:50%; background:#d4e3a8; color:#1f3520;
+  display:flex; align-items:center; justify-content:center;
+  font-size:15px; font-weight:900;
+  font-family:'Playfair Display', serif;
+}
+.faq-q-text { flex:1; }
+.faq-toggle {
+  margin-left:auto; font-size:28px; color:#d4e3a8;
+  transition:transform .3s; flex-shrink:0;
+  font-weight:300; line-height:1;
+}
+.faq-item.open .faq-toggle { transform:rotate(45deg); }
+.faq-a-wrap { max-height:0; overflow:hidden; transition:max-height .4s ease; }
+.faq-item.open .faq-a-wrap { max-height:600px; }
+.faq-a { padding:0 32px 28px 88px; color:#d8e4c0; font-size:16px; line-height:1.95; }
+.faq-a strong { color:#d4e3a8; }
+
+/* ===== Apply ===== */
+.apply { background:#f5f7ec; }
+.apply-watermark {
+  top:50%; left:50%; transform:translate(-50%, -50%);
+  font-size:clamp(180px, 28vw, 400px);
+  color:rgba(44,74,45,0.05); line-height:0.9; white-space:nowrap;
+}
+.apply .section-label { background:#2c4a2d; color:#fff; }
+.apply .section-title { color:#1f3520; text-align:center; }
+.apply .section-desc { color:#3d5a3e; text-align:center; margin-left:auto; margin-right:auto; }
+.apply-tabs { display:flex; justify-content:center; gap:0; margin-bottom:40px; flex-wrap:wrap; }
+.apply-tab {
+  background:#fff; color:#5e6e5f;
+  padding:18px 42px; cursor:pointer;
+  font-family:'Gowun Batang', serif;
+  font-size:18px; font-weight:700;
+  border:2px solid #d8e4c0; transition:all .25s;
+  position:relative; min-width:240px; text-align:center;
+}
+.apply-tab:first-child { border-radius:14px 0 0 14px; border-right:none; }
+.apply-tab:last-child { border-radius:0 14px 14px 0; border-left:none; }
+.apply-tab.active {
+  background:linear-gradient(135deg, #2c4a2d 0%, #3d5a3e 100%);
+  color:#fff; border-color:#2c4a2d;
+  box-shadow:0 8px 20px rgba(44,74,45,0.2);
+}
+.apply-tab small {
+  display:block; font-size:12px;
+  font-family:'Playfair Display', serif;
+  font-weight:400; font-style:italic;
+  letter-spacing:2px; opacity:0.7; margin-top:2px;
+}
+.apply-panel { display:none; }
+.apply-panel.active { display:block; animation:fadeIn .4s ease; }
+@keyframes fadeIn {
+  from { opacity:0; transform:translateY(10px); }
+  to { opacity:1; transform:translateY(0); }
+}
+.process-wrap {
+  background:#fff; padding:40px 36px;
+  border-radius:20px; margin-bottom:40px;
+  box-shadow:0 6px 25px rgba(44,74,45,0.08);
+}
+.process-title {
+  font-family:'Gowun Batang', serif;
+  font-size:20px; font-weight:700;
+  color:#1f3520; margin-bottom:24px; text-align:center;
+}
+.process-steps { display:flex; justify-content:space-between; align-items:flex-start; gap:8px; flex-wrap:wrap; position:relative; }
+.process-step { flex:1; min-width:120px; text-align:center; position:relative; padding:0 6px; }
+.process-step:not(:last-child)::after { content:'→'; position:absolute; right:-12px; top:18px; color:#6b8e5a; font-weight:700; font-size:18px; }
+.process-num {
+  width:44px; height:44px; border-radius:50%;
+  background:linear-gradient(135deg, #6b8e5a 0%, #3d5a3e 100%);
+  color:#fff; font-family:'Playfair Display', serif;
+  font-weight:900; font-size:16px;
+  display:flex; align-items:center; justify-content:center;
+  margin:0 auto 12px; box-shadow:0 4px 10px rgba(107,142,90,0.3);
+}
+.process-text { font-size:14px; color:#3d5a3e; font-weight:500; line-height:1.5; }
+.diag-info-grid { display:grid; grid-template-columns:1fr 1fr; gap:24px; margin-bottom:40px; }
+.diag-info-card {
+  background:#fff; padding:32px 28px;
+  border-radius:18px; border-left:5px solid #6b8e5a;
+  box-shadow:0 4px 15px rgba(44,74,45,0.06);
+}
+.diag-info-card h4 { font-family:'Gowun Batang', serif; font-size:19px; color:#1f3520; margin-bottom:16px; font-weight:700; }
+.diag-info-card ul { list-style:none; padding:0; }
+.diag-info-card li { font-size:14.5px; color:#3d5a3e; padding:6px 0 6px 22px; position:relative; line-height:1.7; }
+.diag-info-card li::before { content:'✓'; position:absolute; left:0; color:#6b8e5a; font-weight:900; }
+.apply-form { background:#fff; padding:50px 44px; border-radius:22px; box-shadow:0 10px 40px rgba(44,74,45,0.1); }
+.form-title {
+  font-family:'Gowun Batang', serif;
+  font-size:24px; font-weight:700; color:#1f3520;
+  margin-bottom:30px; padding-bottom:18px;
+  border-bottom:2px solid #eaf0dc;
+}
+.form-row { display:grid; grid-template-columns:1fr 1fr; gap:20px; margin-bottom:20px; }
+.form-row.full { grid-template-columns:1fr; }
+.form-group { display:flex; flex-direction:column; }
+.form-group label { font-size:14px; font-weight:700; color:#1f3520; margin-bottom:8px; }
+.form-group label .req { color:#c0392b; margin-left:3px; }
+.form-group input,
+.form-group select,
+.form-group textarea {
+  padding:13px 16px; border:1.5px solid #d8e4c0;
+  border-radius:10px; font-size:15px;
+  font-family:'Noto Sans KR', sans-serif; color:#1f2a20;
+  background:#fafaf5; transition:all .2s;
+}
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+  outline:none; border-color:#6b8e5a;
+  background:#fff; box-shadow:0 0 0 3px rgba(107,142,90,0.15);
+}
+.form-group textarea { resize:vertical; min-height:120px; line-height:1.7; }
+.form-group select { cursor:pointer; }
+.checkbox-group { display:flex; flex-wrap:wrap; gap:10px; margin-top:6px; }
+.checkbox-item {
+  background:#f5f7ec; padding:10px 18px;
+  border-radius:25px; cursor:pointer;
+  font-size:14px; color:#3d5a3e; font-weight:500;
+  border:1.5px solid transparent; transition:all .2s;
+  display:inline-flex; align-items:center; gap:8px;
+}
+.checkbox-item input[type="checkbox"] { width:16px; height:16px; cursor:pointer; accent-color:#6b8e5a; }
+.checkbox-item:hover { background:#eaf0dc; border-color:#c5d4b5; }
+.checkbox-item.checked { background:#2c4a2d; color:#fff; border-color:#2c4a2d; }
+.privacy-box {
+  background:#f5f7ec; padding:24px 26px;
+  border-radius:12px; margin-top:24px;
+  font-size:13.5px; color:#4a5a4b; line-height:1.85;
+  border:1px solid #d8e4c0;
+}
+.privacy-box strong { color:#1f3520; }
+.privacy-agree {
+  display:flex; align-items:center; gap:10px;
+  margin-top:14px; font-size:14px; font-weight:700; color:#1f3520;
+  cursor:pointer;
+}
+.privacy-agree input { width:18px; height:18px; accent-color:#2c4a2d; }
+.form-submit {
+  width:100%; margin-top:30px;
+  padding:20px; border:none; border-radius:35px;
+  background:linear-gradient(135deg, #2c4a2d 0%, #3d5a3e 100%);
+  color:#fff; font-size:17px; font-weight:700;
+  cursor:pointer; transition:all .25s;
+  font-family:'Noto Sans KR', sans-serif;
+  letter-spacing:0.5px;
+  box-shadow:0 8px 20px rgba(44,74,45,0.25);
+}
+.form-submit:hover { transform:translateY(-3px); box-shadow:0 14px 32px rgba(44,74,45,0.35); }
+
+/* ===== Final CTA ===== */
+.final-cta {
+  background:linear-gradient(135deg, rgba(15,31,16,0.95) 0%, rgba(44,74,45,0.95) 100%);
+  color:#fff; text-align:center; padding:130px 0;
+}
+.final-cta-watermark {
+  top:50%; left:50%; transform:translate(-50%, -50%);
+  font-size:clamp(180px, 30vw, 440px);
+  color:rgba(212,227,168,0.06); line-height:0.9; white-space:nowrap;
+}
+.final-cta::before {
+  content:''; position:absolute; top:-100px; right:-100px;
+  width:440px; height:440px;
+  background:radial-gradient(circle, rgba(212,227,168,0.15) 0%, transparent 70%);
+  border-radius:50%; z-index:1;
+}
+.final-cta h2 { color:#fff; font-size:46px; margin-bottom:28px; font-weight:700; line-height:1.5; }
+.final-cta h2 .accent { color:#d4e3a8; }
+.final-cta p { font-size:18px; opacity:0.95; margin-bottom:46px; max-width:700px; margin-left:auto; margin-right:auto; line-height:2.05; }
+.final-cta .cta-group { justify-content:center; }
+
+/* ===== Footer ===== */
+footer { background:#0a1408; color:#c5d4b5; padding:70px 0 30px; }
+.footer-grid {
+  display:grid; grid-template-columns:1.2fr 1fr 1fr;
+  gap:50px; margin-bottom:50px; text-align:left;
+}
+.footer-col h5 {
+  font-family:'Gowun Batang', serif;
+  font-size:15px; color:#d4e3a8; font-weight:700;
+  margin-bottom:20px; letter-spacing:1px;
+  padding-bottom:12px;
+  border-bottom:1px solid rgba(212,227,168,0.2);
+}
+.footer-logo {
+  font-family:'Gowun Batang', serif;
+  color:#fff; font-size:22px; font-weight:700;
+  margin-bottom:14px;
+}
+.footer-logo-en {
+  font-family:'Cormorant Garamond', serif;
+  font-style:italic; font-size:14px;
+  color:#a8c189; letter-spacing:4px;
+  margin-bottom:18px;
+}
+.footer-tagline {
+  font-family:'Gowun Batang', serif;
+  font-style:italic; font-size:15px;
+  color:#c5d4b5; line-height:1.85; margin-bottom:12px;
+}
+.footer-sub { font-size:13px; opacity:0.7; line-height:1.85; }
+.footer-info { font-size:14px; line-height:2.1; color:#c5d4b5; }
+.footer-info .label {
+  display:inline-block; min-width:65px;
+  color:#a8c189; font-weight:700; font-size:13px;
+}
+.footer-info a { color:#c5d4b5; transition:color .2s; }
+.footer-info a:hover { color:#d4e3a8; }
+.footer-bottom {
+  text-align:center; padding-top:30px;
+  border-top:1px solid rgba(197,212,181,0.15);
+}
+.footer-bottom .copy {
+  font-family:'Playfair Display', serif;
+  font-size:12px; opacity:0.5; letter-spacing:2px;
+}
+
+/* ===== Responsive ===== */
+@media (max-width:860px) {
+  .nav-menu { display:none; }
+  .hero h1 { font-size:38px; line-height:1.55; }
+  .hero-sub { font-size:16px; }
+  .hero-tagline .text { font-size:13px; letter-spacing:5px; }
+  .hero-tagline .line { width:30px; }
+  .section-title { font-size:30px; }
+  section { padding:90px 0; }
+  .program-intro { grid-template-columns:1fr; }
+  .level-row { grid-template-columns:75px 1fr; gap:12px 16px; padding:22px 24px; }
+  .level-goal { grid-column:1 / -1; padding-left:91px; }
+  .empathy-conclusion { font-size:21px; padding:36px 26px; }
+  .final-cta h2 { font-size:30px; }
+  .concept-block { padding:38px 28px; }
+  .concept-block h3 { font-size:22px; }
+  .outputs { padding:34px 28px; }
+  .apply-tab { min-width:160px; padding:14px 20px; font-size:15px; }
+  .apply-form { padding:32px 24px; }
+  .form-row { grid-template-columns:1fr; gap:14px; }
+  .diag-info-grid { grid-template-columns:1fr; gap:16px; }
+  .process-step:not(:last-child)::after { display:none; }
+  .process-step { min-width:80px; }
+  .process-text { font-size:12.5px; }
+  .footer-grid { grid-template-columns:1fr; gap:34px; }
+  .faq-a { padding:0 24px 24px 24px; }
+  .faq-q { padding:22px 24px; gap:14px; font-size:16px; }
+}
+</style>
+</head>
+<body>
+
+<!-- ===== Header ===== -->
+<header>
+  <div class="container nav">
+    <div class="logo">🌱 리세움 <span>LYCEUM</span></div>
+    <ul class="nav-menu">
+      <li><a href="#about">소개</a></li>
+      <li><a href="#solution">학습 솔루션</a></li>
+      <li><a href="#program">프로그램</a></li>
+      <li><a href="#level">레벨</a></li>
+      <li><a href="#faq">FAQ</a></li>
+      <li><a href="#apply">신청</a></li>
+    </ul>
+    <a href="#apply" class="nav-cta">레벨진단 신청</a>
+  </div>
+</header>
+
+<!-- ===== Hero ===== -->
+<section class="hero">
+  <div class="watermark hero-watermark">LYCEUM</div>
+  <div class="container hero-content">
+    <div class="hero-tagline">
+      <div class="line"></div>
+      <span class="text">Thinking · Reading · <strong>Lyceum</strong></span>
+    </div>
+    <h1>책은 읽는데,<br>왜 <span class="accent">시험만 보면</span><br>무너질까요?</h1>
+    <p class="hero-sub">
+      줄거리는 말해도 주제는 못 짚는 아이.<br>
+      문제를 풀기 전에 '문제 자체'를 못 읽는 아이.<br>
+      "느낀 점을 쓰시오" 앞에서 막막해 하는 아이.<br><br>
+      <strong>독서 양이 실력이 되지 않는 이유는 단 하나,<br>
+      '읽는 법'을 배운 적이 없기 때문입니다.</strong>
+    </p>
+    <div class="cta-group">
+      <a href="#program" class="btn btn-primary">리세움 수업 알아보기</a>
+      <a href="#apply" class="btn btn-outline" onclick="switchTab('diagnosis')">무료 레벨진단 신청</a>
+    </div>
+  </div>
+</section>
+
+<!-- ===== Empathy ===== -->
+<section class="empathy" id="about">
+  <div class="watermark empathy-watermark">About</div>
+  <div class="container">
+    <span class="section-label">About Lyceum</span>
+    <h2 class="section-title">혹시 우리 아이도 이런가요?</h2>
+    <p class="section-desc">초등·중등 학부모님들이 가장 많이 하시는 고민입니다.<br>한 가지라도 고개가 끄덕여진다면, 함께 이야기 나눠보면 좋겠습니다.</p>
+
+    <div class="empathy-quotes">
+      <div class="quote-card"><div class="quote-text">책은 많이 읽는데, 독후감은 그냥 "재미있었다"로 끝나요.</div></div>
+      <div class="quote-card"><div class="quote-text">수학 문장제를 못 풀어요. 문제를 이해하지 못해요.</div></div>
+      <div class="quote-card"><div class="quote-text">학교 서술형 시험에서 아는 내용인데도 점수가 안 나와요.</div></div>
+      <div class="quote-card"><div class="quote-text">중학교 가면 국어가 어렵다는데, 지금 뭐부터 해야 할까요?</div></div>
+      <div class="quote-card"><div class="quote-text">발표 시간만 되면 입을 닫아요. 어떻게 말해야 할지 모르겠다는 거예요.</div></div>
+      <div class="quote-card"><div class="quote-text">어휘력이 부족해요. 단어를 몰라서 내용 파악이 잘 안돼요.</div></div>
+    </div>
+
+    <div class="empathy-conclusion">
+      지금 우리 아이에게 필요한 것은<br>
+      <strong>'더 많은 책을 읽는 것'이 아니라, '제대로 읽는 법'</strong>입니다.
+    </div>
+  </div>
+</section>
+
+<!-- ===== Solution (SVG 벤다이어그램) ===== -->
+<section class="solution" id="solution">
+  <div class="watermark solution-watermark">Solution</div>
+  <div class="container">
+    <span class="section-label">Our Solution</span>
+    <h2 class="section-title">리세움의 3단계 학습 솔루션</h2>
+    <p class="section-desc">세 가지 힘이 만나는 자리에서, 아이의 <strong>통합 사고력</strong>이 자랍니다.</p>
+
+    <div class="venn-svg-wrap">
+      <svg class="venn-svg" viewBox="0 0 1200 900" xmlns="http://www.w3.org/2000/svg">
+        <!-- 세 원 -->
+        <circle class="circle circle-left"   cx="377" cy="331" r="277"/>
+        <circle class="circle circle-right"  cx="811" cy="331" r="277"/>
+        <circle class="circle circle-bottom" cx="595" cy="605" r="277"/>
+
+        <!-- 왼쪽 원 -->
+        <text class="text-dark" x="300" y="305">정확한</text>
+        <text class="text-dark" x="300" y="385">개념 이해</text>
+
+        <!-- 오른쪽 원 -->
+        <text class="text-dark" x="890" y="305">생각의</text>
+        <text class="text-dark" x="890" y="355">확장</text>
+
+        <!-- 위쪽 교집합 -->
+        <text class="text-white" x="595" y="240">심화</text>
+        <text class="text-white" x="595" y="278">학습</text>
+
+        <!-- 중앙 교집합 (통합 사고력) -->
+        <text class="text-accent" x="595" y="430">통합</text>
+        <text class="text-accent" x="595" y="472">사고력</text>
+
+        <!-- 왼쪽 아래 교집합 -->
+        <text class="text-white" x="430" y="540">체계적</text>
+        <text class="text-white" x="430" y="578">글쓰기</text>
+
+        <!-- 오른쪽 아래 교집합 -->
+        <text class="text-white" x="760" y="540">비판적</text>
+        <text class="text-white" x="760" y="578">사고</text>
+
+        <!-- 아래 원 -->
+        <text class="text-dark" x="595" y="745">자기 언어 완성</text>
+      </svg>
+    </div>
+
+    <p class="solution-desc-bottom">
+      개념어로 <strong>정확히 읽고</strong>, 토론으로 <strong>생각을 확장하고</strong>, 글쓰기로 <strong>자기 언어를 완성</strong>합니다.<br>
+      이 세 가지가 한 자리에서 만날 때, 진짜 사고력이 만들어집니다.
+    </p>
+  </div>
+</section>
+
+<!-- ===== Program ===== -->
+<section class="program" id="program">
+  <div class="watermark program-watermark">Program</div>
+  <div class="container">
+    <span class="section-label">Program</span>
+    <h2 class="section-title">읽는 법을 가르치고,<br>생각을 표현하게 합니다.</h2>
+    <p class="section-desc">리세움 수업은 두 개의 축으로 움직입니다.</p>
+
+    <div class="program-intro">
+      <div class="program-axis">
+        <div class="axis-num">PROGRAM 01</div>
+        <h3 class="axis-title">리세움 개념독해</h3>
+        <div class="axis-en">Lyceum Concept Reading</div>
+        <p class="axis-desc">감(感)이 아니라 <strong>개념으로 읽습니다.</strong><br>글을 정확히 읽어내는 '독해의 도구'를 아이 손에 쥐여줍니다.</p>
+      </div>
+      <div class="program-axis">
+        <div class="axis-num">PROGRAM 02</div>
+        <h3 class="axis-title">7단계 올인원 독서토론</h3>
+        <div class="axis-en">7-Step All-in-One Reading</div>
+        <p class="axis-desc">한 권의 책에서 <strong>읽기 · 토론 · 글쓰기 · 어휘</strong>까지<br>모든 것이 한 흐름으로 연결됩니다.</p>
+      </div>
+    </div>
+
+    <div class="concept-block lit">
+      <h3>문학을 읽는 개념어</h3>
+      <p class="concept-intro">
+        문학을 깊이 읽기 위한 개념어는 <strong>수십 가지</strong>가 있습니다.<br>
+        리세움은 그중 아이의 단계에 맞는 <strong>핵심 개념어</strong>를 선별해, 작품을 입체적으로 읽어내는 도구로 가르칩니다.
+      </p>
+      <div class="concept-words">
+        <span class="concept-word">인물</span>
+        <span class="concept-word">갈등</span>
+        <span class="concept-word">시점</span>
+        <span class="concept-word">주제</span>
+        <span class="concept-word">상징</span>
+        <span class="concept-word more">+ 그 외 다수</span>
+      </div>
+      <p class="concept-note">* 전체 커리큘럼과 레벨별 학습 개념어는 상담 시 자세히 안내드립니다.</p>
+    </div>
+
+    <div class="concept-block nonfic">
+      <h3>비문학을 읽는 개념어</h3>
+      <p class="concept-intro">
+        비문학 글의 구조를 파악하는 개념어 역시 <strong>매우 다양합니다.</strong><br>
+        리세움은 글의 논리 구조를 정확히 읽어내는 데 필요한 핵심을 단계별로 익히도록 설계했습니다.
+      </p>
+      <div class="concept-words">
+        <span class="concept-word">주장</span>
+        <span class="concept-word">근거</span>
+        <span class="concept-word">원인·결과</span>
+        <span class="concept-word">비교·대조</span>
+        <span class="concept-word">문제·해결</span>
+        <span class="concept-word more">+ 그 외 다수</span>
+      </div>
+      <p class="concept-note">* 학년·레벨별 비문학 개념어 커리큘럼은 상담 시 안내드립니다.</p>
+    </div>
+
+    <div class="steps-title-wrap">
+      <h3 class="steps-title">7단계, 한 권의 책에서 모든 것이 연결됩니다</h3>
+      <p class="steps-sub">읽기에서 시작해 어휘 축적까지 — 흩어진 학습이 하나로 통합됩니다.</p>
+    </div>
+    <div class="steps-grid">
+      <div class="step-card"><div class="step-num">1</div><div class="step-title">작품 깊이 이해</div><div class="step-desc">줄거리·인물·사건·배경을 정확히 파악합니다.</div></div>
+      <div class="step-card"><div class="step-num">2</div><div class="step-title">문학 개념어 분석</div><div class="step-desc">개념어를 활용해 작품의 구조를 읽어냅니다.</div></div>
+      <div class="step-card"><div class="step-num">3</div><div class="step-title">문장·표현 감각</div><div class="step-desc">좋은 문장을 음미하고 문장 구조를 익힙니다.</div></div>
+      <div class="step-card"><div class="step-num">4</div><div class="step-title">비문학 확장</div><div class="step-desc">작품 주제와 닿는 사회·과학·철학 자료를 읽습니다.</div></div>
+      <div class="step-card"><div class="step-num">5</div><div class="step-title">찬반 토론</div><div class="step-desc">쟁점을 정하고 근거를 세워 토론합니다.</div></div>
+      <div class="step-card"><div class="step-num">6</div><div class="step-title">글쓰기</div><div class="step-desc">토론한 생각을 문장과 단락으로 완성합니다.</div></div>
+      <div class="step-card"><div class="step-num">7</div><div class="step-title">나만의 어휘창고</div><div class="step-desc">핵심 어휘·개념어·관용표현·사자성어·한자어· 좋은 표현을 축적합니다.</div></div>
+    </div>
+
+    <div class="outputs">
+      <h4>📚 수업이 끝나면 아이의 손에 남는 것</h4>
+      <div class="outputs-list">
+        <span class="output-tag">작품 이해 노트</span>
+        <span class="output-tag">개념독해 활동지</span>
+        <span class="output-tag">비문학 확장 자료</span>
+        <span class="output-tag">토론 근거 카드</span>
+        <span class="output-tag">글쓰기 결과물</span>
+        <span class="output-tag">나만의 어휘창고</span>
+        <span class="output-tag">학기별 성장 리포트</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== Level ===== -->
+<section class="level" id="level">
+  <div class="watermark level-watermark">Level</div>
+  <div class="container">
+    <span class="section-label">Level Course</span>
+    <h2 class="section-title">학년이 아니라,<br>아이의 '지금'에서 시작합니다.</h2>
+    <p class="section-desc">
+      5학년이라고 5학년 반에 들어가는 것이 아닙니다.<br>
+      읽기 이해력 · 개념독해력 · 어휘력 · 말하기 · 글쓰기를 종합 진단해, 아이에게 꼭 맞는 시작점을 찾아드립니다.
+    </p>
+
+    <div class="level-table">
+      <div class="level-row head"><div class="level-badge">LV</div><div class="level-name">과정</div><div class="level-goal">한 줄 목표</div></div>
+      <div class="level-row"><div class="level-badge badge-L1">L1</div><div class="level-name">적응기</div><div class="level-goal">책을 정확히 읽고, 짧게 내 생각 말하기</div></div>
+      <div class="level-row"><div class="level-badge badge-L2">L2</div><div class="level-name">기초기</div><div class="level-goal">개념어로 글의 핵심 파악하기</div></div>
+      <div class="level-row"><div class="level-badge badge-L3">L3</div><div class="level-name">성장기</div><div class="level-goal">작품과 비문학을 연결해 근거 있게 말하기</div></div>
+      <div class="level-row"><div class="level-badge badge-L4">L4</div><div class="level-name">심화기</div><div class="level-goal">쟁점을 분석하고 논리적으로 토론·글쓰기</div></div>
+      <div class="level-row"><div class="level-badge badge-L5">L5</div><div class="level-name">완성기</div><div class="level-goal">비판적 읽기와 논증적 글쓰기로 사고 완성</div></div>
+    </div>
+
+    <p class="level-note">
+      💡 어느 레벨이 우리 아이에게 맞는지 궁금하다면, <a href="#apply" onclick="switchTab('diagnosis')">무료 레벨진단</a>을 신청해보세요.
+    </p>
+  </div>
+</section>
+
+<!-- ===== FAQ ===== -->
+<section class="faq" id="faq">
+  <div class="watermark faq-watermark">FAQ</div>
+  <div class="container">
+    <span class="section-label">FAQ</span>
+    <h2 class="section-title">자주 묻는 질문</h2>
+    <p class="section-desc">학부모님들이 가장 많이 궁금해하시는 내용을 모았습니다.</p>
+
+    <div class="faq-list">
+      <div class="faq-item">
+        <div class="faq-q">
+          <div class="faq-q-icon">Q</div>
+          <div class="faq-q-text">책을 별로 읽지 않은 아이도 따라갈 수 있나요?</div>
+          <div class="faq-toggle">+</div>
+        </div>
+        <div class="faq-a-wrap"><div class="faq-a">괜찮습니다. 리세움은 '책 많이 읽은 아이'를 위한 곳이 아니라, <strong>'제대로 읽는 법을 배우고 싶은 아이'</strong>를 위한 곳입니다. 아이의 현재 수준에 맞춰 한 줄 읽기부터 차근차근 시작합니다.</div></div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">
+          <div class="faq-q-icon">Q</div>
+          <div class="faq-q-text">글쓰기를 너무 싫어해요. 가능할까요?</div>
+          <div class="faq-toggle">+</div>
+        </div>
+        <div class="faq-a-wrap"><div class="faq-a">처음부터 긴 글을 쓰게 하지 않습니다. <strong>한 문장 → 생각 정리 → 한 단락 → 한 편의 글</strong> 순서로 부담 없이 확장합니다. 대부분의 아이가 2~3개월 안에 "쓰는 게 두렵지 않다"고 말합니다.</div></div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">
+          <div class="faq-q-icon">Q</div>
+          <div class="faq-q-text">학교 국어 점수와도 연결되나요?</div>
+          <div class="faq-toggle">+</div>
+        </div>
+        <div class="faq-a-wrap"><div class="faq-a">직접적으로 연결됩니다. 리세움은 독서·독해·어휘·문장·서술형 표현을 함께 다루기 때문에, 특히 <strong>서술형·수행평가·논술형 평가</strong>에서 변화가 빠르게 나타납니다.</div></div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">
+          <div class="faq-q-icon">Q</div>
+          <div class="faq-q-text">수학·과학·사회 같은 다른 과목에도 도움이 되나요?</div>
+          <div class="faq-toggle">+</div>
+        </div>
+        <div class="faq-a-wrap"><div class="faq-a">네. 수학 문장제를 못 푸는 아이의 대부분은 '계산'이 아니라 <strong>'문제 읽기'</strong>에서 막힙니다. 모든 과목의 바탕은 결국 '읽고 이해하는 힘'이기에, 사고문해력은 전 과목의 토대가 됩니다.</div></div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">
+          <div class="faq-q-icon">Q</div>
+          <div class="faq-q-text">발표를 부끄러워하는 아이도 토론할 수 있나요?</div>
+          <div class="faq-toggle">+</div>
+        </div>
+        <div class="faq-a-wrap"><div class="faq-a">가능합니다. <strong>짧게 한마디 말하기</strong>부터 시작해 점차 근거 있는 표현으로 확장합니다. 소그룹 안에서 천천히 자기 목소리를 찾아갑니다.</div></div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">
+          <div class="faq-q-icon">Q</div>
+          <div class="faq-q-text">수업은 어떻게 진행되나요?</div>
+          <div class="faq-toggle">+</div>
+        </div>
+        <div class="faq-a-wrap"><div class="faq-a">리세움은 <strong>대면 수업으로만 운영</strong>됩니다. 토론과 글쓰기, 어휘 축적은 한 공간에서 함께 호흡할 때 가장 깊은 학습이 일어난다고 믿기 때문입니다. 자세한 시간표와 반 편성은 상담 시 안내드립니다.</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== Apply ===== -->
+<section class="apply" id="apply">
+  <div class="watermark apply-watermark">Apply</div>
+  <div class="container">
+    <span class="section-label">Apply</span>
+    <h2 class="section-title">우리 아이에게 맞는<br>사고독서 수업을 시작하세요</h2>
+    <p class="section-desc">상담 신청 또는 레벨진단 신청을 통해, 아이에게 가장 맞는 시작점을 함께 찾아드립니다.</p>
+
+    <div class="apply-tabs">
+      <div class="apply-tab active" data-tab="consult" onclick="switchTab('consult')">
+        상담 신청
+        <small>CONSULTATION</small>
+      </div>
+      <div class="apply-tab" data-tab="diagnosis" onclick="switchTab('diagnosis')">
+        레벨진단 신청
+        <small>LEVEL DIAGNOSIS</small>
+      </div>
+    </div>
+
+    <div class="apply-panel active" id="panel-consult">
+      <div class="process-wrap">
+        <div class="process-title">상담은 이렇게 진행됩니다</div>
+        <div class="process-steps">
+          <div class="process-step"><div class="process-num">1</div><div class="process-text">온라인<br>상담 신청</div></div>
+          <div class="process-step"><div class="process-num">2</div><div class="process-text">상담 일정<br>안내</div></div>
+          <div class="process-step"><div class="process-num">3</div><div class="process-text">1차 상담</div></div>
+          <div class="process-step"><div class="process-num">4</div><div class="process-text">프로그램<br>안내</div></div>
+          <div class="process-step"><div class="process-num">5</div><div class="process-text">수업 등록<br>및 반 배정</div></div>
+        </div>
+      </div>
+
+      <form class="apply-form" onsubmit="handleSubmit(event, 'consult')">
+        <h3 class="form-title">📝 온라인 상담 신청서</h3>
+        <div class="form-row">
+          <div class="form-group"><label>학생 이름 <span class="req">*</span></label><input type="text" required placeholder="예: 김리세" /></div>
+          <div class="form-group"><label>학생 학년 <span class="req">*</span></label><select required><option value="">선택해주세요</option><option>초1</option><option>초2</option><option>초3</option><option>초4</option><option>초5</option><option>초6</option><option>중1</option><option>중2</option><option>중3</option></select></div>
+        </div>
+        <div class="form-row">
+          <div class="form-group"><label>재학 학교</label><input type="text" placeholder="예: ○○초등학교" /></div>
+          <div class="form-group"><label>보호자 성함 <span class="req">*</span></label><input type="text" required placeholder="예: 김부모" /></div>
+        </div>
+        <div class="form-row">
+          <div class="form-group"><label>보호자 연락처 <span class="req">*</span></label><input type="tel" required placeholder="010-0000-0000" /></div>
+          <div class="form-group"><label>연락 가능 시간 <span class="req">*</span></label><select required><option value="">선택해주세요</option><option>오전 (9시 ~ 12시)</option><option>점심 (12시 ~ 2시)</option><option>오후 (2시 ~ 6시)</option><option>저녁 (6시 ~ 9시)</option><option>아무 때나 가능</option></select></div>
+        </div>
+        <div class="form-row full">
+          <div class="form-group">
+            <label>관심 프로그램 (복수 선택 가능)</label>
+            <div class="checkbox-group">
+              <label class="checkbox-item"><input type="checkbox" />리세움 개념독해</label>
+              <label class="checkbox-item"><input type="checkbox" />7단계 올인원 독서토론</label>
+              <label class="checkbox-item"><input type="checkbox" />독서토론</label>
+              <label class="checkbox-item"><input type="checkbox" />글쓰기·논술</label>
+              <label class="checkbox-item"><input type="checkbox" />국어 문해력</label>
+              <label class="checkbox-item"><input type="checkbox" />아직 잘 모르겠어요</label>
+            </div>
+          </div>
+        </div>
+        <div class="form-row full">
+          <div class="form-group"><label>상담 요청 사항 <span class="req">*</span></label><textarea required placeholder="아이에 대해 상담받고 싶은 내용을 자유롭게 적어주세요."></textarea></div>
+        </div>
+        <div class="privacy-box">
+          <strong>📌 개인정보 수집 및 이용 동의</strong><br>
+          사고독서 리세움은 상담 신청 및 안내를 위해 개인정보를 수집·이용합니다.<br>
+          <strong>수집 항목:</strong> 학생 이름, 학년, 학교, 보호자 성함, 연락처, 상담 내용<br>
+          <strong>보유 기간:</strong> 상담 종료 후 6개월 또는 삭제 요청 시 즉시 파기
+          <label class="privacy-agree"><input type="checkbox" required />개인정보 수집 및 이용에 동의합니다.</label>
+        </div>
+        <button type="submit" class="form-submit">상담 신청하기 →</button>
+      </form>
+    </div>
+
+    <div class="apply-panel" id="panel-diagnosis">
+      <div class="diag-info-grid">
+        <div class="diag-info-card">
+          <h4>🔍 진단 영역</h4>
+          <ul>
+            <li>읽기 이해력</li><li>개념독해력</li><li>어휘력</li>
+            <li>말하기·토론력</li><li>글쓰기 표현력</li><li>사고 태도</li>
+          </ul>
+        </div>
+        <div class="diag-info-card">
+          <h4>💡 이런 아이에게 권합니다</h4>
+          <ul>
+            <li>책은 읽지만 설명이 어려운 아이</li>
+            <li>주제 파악이 약한 아이</li>
+            <li>비문학 지문을 어려워하는 아이</li>
+            <li>글쓰기를 힘들어하는 아이</li>
+            <li>서술형 평가가 걱정되는 아이</li>
+          </ul>
+        </div>
+      </div>
+      <div class="process-wrap">
+        <div class="process-title">레벨진단 진행 절차</div>
+        <div class="process-steps">
+          <div class="process-step"><div class="process-num">1</div><div class="process-text">온라인 신청</div></div>
+          <div class="process-step"><div class="process-num">2</div><div class="process-text">일정 안내</div></div>
+          <div class="process-step"><div class="process-num">3</div><div class="process-text">레벨진단<br>진행</div></div>
+          <div class="process-step"><div class="process-num">4</div><div class="process-text">결과 상담</div></div>
+          <div class="process-step"><div class="process-num">5</div><div class="process-text">수업 방향<br>안내</div></div>
+        </div>
+      </div>
+      <form class="apply-form" onsubmit="handleSubmit(event, 'diagnosis')">
+        <h3 class="form-title">📋 레벨진단 신청서</h3>
+        <div class="form-row">
+          <div class="form-group"><label>학생 이름 <span class="req">*</span></label><input type="text" required placeholder="예: 김리세" /></div>
+          <div class="form-group"><label>학생 학년 <span class="req">*</span></label><select required><option value="">선택해주세요</option><option>초1</option><option>초2</option><option>초3</option><option>초4</option><option>초5</option><option>초6</option><option>중1</option><option>중2</option><option>중3</option></select></div>
+        </div>
+        <div class="form-row">
+          <div class="form-group"><label>재학 학교</label><input type="text" placeholder="예: ○○초등학교" /></div>
+          <div class="form-group"><label>보호자 성함 <span class="req">*</span></label><input type="text" required placeholder="예: 김부모" /></div>
+        </div>
+        <div class="form-row">
+          <div class="form-group"><label>보호자 연락처 <span class="req">*</span></label><input type="tel" required placeholder="010-0000-0000" /></div>
+          <div class="form-group"><label>연락 가능 시간 <span class="req">*</span></label><select required><option value="">선택해주세요</option><option>오전 (9시 ~ 12시)</option><option>점심 (12시 ~ 2시)</option><option>오후 (2시 ~ 6시)</option><option>저녁 (6시 ~ 9시)</option><option>아무 때나 가능</option></select></div>
+        </div>
+        <div class="form-row full">
+          <div class="form-group">
+            <label>진단 신청 이유 (복수 선택 가능)</label>
+            <div class="checkbox-group">
+              <label class="checkbox-item"><input type="checkbox" />독서 수준을 확인하고 싶어요</label>
+              <label class="checkbox-item"><input type="checkbox" />책을 제대로 이해하는지 궁금해요</label>
+              <label class="checkbox-item"><input type="checkbox" />어휘력이 부족한 것 같아요</label>
+              <label class="checkbox-item"><input type="checkbox" />비문학 독해가 약한 것 같아요</label>
+              <label class="checkbox-item"><input type="checkbox" />글쓰기를 어려워해요</label>
+              <label class="checkbox-item"><input type="checkbox" />토론 수업이 가능한지 궁금해요</label>
+              <label class="checkbox-item"><input type="checkbox" />서술형 평가가 걱정돼요</label>
+              <label class="checkbox-item"><input type="checkbox" />중등 국어를 준비하고 싶어요</label>
+            </div>
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group"><label>현재 독서 습관 <span class="req">*</span></label><select required><option value="">선택해주세요</option><option>매일 책을 읽어요</option><option>주 2~3회 책을 읽어요</option><option>가끔 읽어요 (월 1~2권)</option><option>거의 읽지 않아요</option></select></div>
+          <div class="form-group"><label>글쓰기 수준 <span class="req">*</span></label><select required><option value="">선택해주세요</option><option>한 편의 글을 잘 써요</option><option>짧은 단락은 쓸 수 있어요</option><option>한두 문장 정도만 써요</option><option>글쓰기를 매우 어려워해요</option></select></div>
+        </div>
+        <div class="form-row full">
+          <div class="form-group"><label>상담 요청 사항 <span class="req">*</span></label><textarea required placeholder="아이에 대해 특별히 상담받고 싶은 내용을 자유롭게 적어주세요."></textarea></div>
+        </div>
+        <div class="privacy-box">
+          <strong>📌 개인정보 수집 및 이용 동의</strong><br>
+          사고독서 리세움은 레벨진단 신청 및 안내를 위해 개인정보를 수집·이용합니다.<br>
+          <strong>수집 항목:</strong> 학생 이름, 학년, 학교, 보호자 성함, 연락처, 진단 신청 내용<br>
+          <strong>보유 기간:</strong> 상담 종료 후 6개월 또는 삭제 요청 시 즉시 파기
+          <label class="privacy-agree"><input type="checkbox" required />개인정보 수집 및 이용에 동의합니다.</label>
+        </div>
+        <button type="submit" class="form-submit">레벨진단 신청하기 →</button>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- ===== Final CTA ===== -->
+<section class="final-cta">
+  <div class="watermark final-cta-watermark">LYCEUM</div>
+  <div class="container">
+    <h2>우리 아이의 진짜 국어 실력,<br><span class="accent">지금 어디쯤</span> 와 있을까요?</h2>
+    <p>
+      독서량보다 중요한 것은,<br>
+      <strong style="color:#d4e3a8;">정확히 읽고, 깊이 생각하고, 자기 언어로 표현하는 힘</strong>입니다.
+    </p>
+    <div class="cta-group">
+      <a href="#apply" class="btn btn-primary" onclick="switchTab('diagnosis')">무료 레벨진단 신청하기</a>
+      <a href="#apply" class="btn btn-outline" onclick="switchTab('consult')">1:1 상담 신청하기</a>
+    </div>
+  </div>
+</section>
+
+<!-- ===== Footer ===== -->
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-col">
+        <div class="footer-logo">🌱 사고독서 리세움</div>
+        <div class="footer-logo-en">THINKING · READING · LYCEUM</div>
+        <p class="footer-tagline">"읽는 법을 배우면,<br>생각하는 힘이 자랍니다."</p>
+        <p class="footer-sub">국어 기반 사고문해력 교육원</p>
+      </div>
+      <div class="footer-col">
+        <h5>찾아오시는 길</h5>
+        <p class="footer-info">
+          <span class="label">주소</span>서울 서대문구<br>
+          <span style="padding-left:65px; display:inline-block;">명지대길 130</span><br>
+          <span style="padding-left:65px; display:inline-block;">충암문화스포츠센터 6층</span>
+        </p>
+      </div>
+      <div class="footer-col">
+        <h5>문의하기</h5>
+        <p class="footer-info">
+          <span class="label">대표</span>이명자<br>
+          <span class="label">전화</span><a href="tel:010-3396-3710">010-3396-3710</a><br>
+          <span class="label">신청</span><a href="#apply">상담 · 레벨진단 신청</a>
+        </p>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p class="copy">© RISEUM · ALL RIGHTS RESERVED</p>
+    </div>
+  </div>
+</footer>
+
+<script>
+  document.querySelectorAll('.faq-item').forEach(item => {
+    const question = item.querySelector('.faq-q');
+    question.addEventListener('click', () => {
+      item.classList.toggle('open');
+    });
+  });
+
+  function switchTab(tabName) {
+    document.querySelectorAll('.apply-tab').forEach(tab => {
+      tab.classList.toggle('active', tab.dataset.tab === tabName);
+    });
+    document.querySelectorAll('.apply-panel').forEach(panel => {
+      panel.classList.toggle('active', panel.id === 'panel-' + tabName);
+    });
+  }
+
+  document.querySelectorAll('.checkbox-item input[type="checkbox"]').forEach(cb => {
+    cb.addEventListener('change', (e) => {
+      e.target.closest('.checkbox-item').classList.toggle('checked', e.target.checked);
+    });
+  });
+
+  function handleSubmit(event, type) {
+    event.preventDefault();
+    const message = type === 'consult'
+      ? '상담 신청이 접수되었습니다.\n빠른 시간 안에 연락드리겠습니다. 감사합니다. 🌱'
+      : '레벨진단 신청이 접수되었습니다.\n빠른 시간 안에 일정 안내 연락드리겠습니다. 감사합니다. 🌱';
+    alert(message);
+    event.target.reset();
+    document.querySelectorAll('.checkbox-item').forEach(item => item.classList.remove('checked'));
+  }
+</script>
+
+</body>
+</html>
